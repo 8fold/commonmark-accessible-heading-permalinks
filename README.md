@@ -1,8 +1,8 @@
 > Note: Delete the labels in the new repo and use https://github.com/jvandemo/copy-github-labels-cli to copy the ones found here to the new repo
 
-# 8fold {Name of product or project} for {language or framework}
+# 8fold Accessible Heading Permalinks for CommonMark
 
-{brief description}
+Note: The code used to display this text does NOT use this plug-in.
 
 ## Installation
 
