@@ -44,7 +44,7 @@ Which will output the following (whitespace added for improved readability).
   <h1 id="hello">Hello</h1>
   <a hreg="#hello">
     <span aria-hidden="true">¶</span>
-    <span>Section title Hello</span>
+    <span>Section titled Hello</span>
   </a>
 </div>
 ```
@@ -56,7 +56,7 @@ The HTML is treated as a whole component. Styling the inner elements can be acco
 For example, the second `span` in the link should be primarily reserved for those using assistive technologies. Therefore, I want it to be off-screen and still read aloud when on the link has focus.
 
 ```css
-div[is='heading-permalink'] > a > span:nth-of-type(2) {
+div[is='heading-wrapper'] > a > span:nth-of-type(2) {
   position: absolute;
   left: -999em;
   right: auto;
