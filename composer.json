@@ -20,12 +20,12 @@
   },
   "autoload": {
     "psr-4": {
-      "Eightfold\\CommonMarkHeadingPermalinks\\": "./src/"
+      "Eightfold\\CommonMarkAccessibleHeadingPermalink\\": "./src"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Eightfold\\CommonMarkHeadingPermalinks\\Tests\\": "./tests/"
+      "Eightfold\\CommonMarkAccessibleHeadingPermalink\\Tests\\": "./tests"
     }
   },
   "config": {
