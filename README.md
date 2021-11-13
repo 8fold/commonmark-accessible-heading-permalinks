@@ -1,12 +1,10 @@
-> Note: Delete the labels in the new repo and use https://github.com/jvandemo/copy-github-labels-cli to copy the ones found here to the new repo
-
 # 8fold Accessible Heading Permalinks for CommonMark
 
 This library is an extension for the [CommonMark parser](https://github.com/thephpleague/commonmark) from the PHP League adding accessible heading permalinks inspired by [Amber Wilson](https://amberwilson.co.uk/blog/are-your-anchor-links-accessible/).
 
-> Note: The HTML rendered on this page most likely doesn't use this approach.
+> 🗒 Note: The HTML rendered on this page most likely doesn't use this approach.
 
-> Warning: Do NOT use with the heading permalinks extension provided with CommonMark. I'm not sure what will happen; could be nothing, could be a singularity causing event, who knows?
+> ⚠️ Warning: Do NOT use with the heading permalinks extension provided with CommonMark. I'm not sure what will happen; could be nothing, could be a singularity causing event, who knows?
 
 ## Installation
 
@@ -46,7 +44,7 @@ Which will output the following (whitespace added for improved readability).
   <h1 id="hello">Hello</h1>
   <a hreg="#hello">
     <span aria-hidden="true">¶</span>
-	<span>Section title Hello</span>
+    <span>Section title Hello</span>
   </a>
 </div>
 ```
@@ -64,8 +62,15 @@ div[is='heading-permalink'] > a > span:nth-of-type(2) {
   right: auto;
 }
 ```
+
 This example uses the solution provided by the [United States Web Design System](https://github.com/uswds/uswds/blob/1908d1391bc59410624ca1934cc70b7404e8f443/src/stylesheets/core/mixins/_screen-reader.scss) and is not the only method used or available to accomplish similar results.
 
 ## Other
 
-{links or descriptions or license, versioning, and governance}
+- [Code of Conduct](https://github.com/8fold/commonmark-fluent-markdown/blob/main/.github/CODE_OF_CONDUCT.md)
+- [Contributing](https://github.com/8fold/commonmark-accessible-heading-permalinks/blob/main/.github/CONTRIBUTING.md)
+- [Governance](https://github.com/8fold/commonmark-accessible-heading-permalinks/blob/main/.github/GOVERNANCE.md)
+- [Versioning](https://github.com/8fold/commonmark-accessible-heading-permalinks/blob/main/.github/VERSIONING.md)
+- [Security](https://github.com/8fold/commonmark-accessible-heading-permalinks/blob/main/.github/SECURITY.md)
+- [Coding Standards and Style](https://github.com/8fold/commonmark-accessible-heading-permalinks/blob/main/.github/coding-standards-and-styles.md)
+
