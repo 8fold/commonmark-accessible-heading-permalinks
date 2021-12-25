@@ -8,7 +8,9 @@ This library is an extension for the [CommonMark parser](https://github.com/thep
 
 ## Installation
 
-{how does one install the product}
+```bash
+composer require 8fold/commonmark-accessible-heading-permalinks
+```
 
 ## Usage
 
