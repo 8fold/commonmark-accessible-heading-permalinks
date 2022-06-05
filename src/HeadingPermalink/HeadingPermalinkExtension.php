@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Eightfold\CommonMarkAccessibleHeadingPermalink;
+namespace Eightfold\CommonMarkAccessibleHeadingPermalink\HeadingPermalink;
 
 use League\CommonMark\Extension\ConfigurableExtensionInterface;
 
@@ -14,9 +14,9 @@ use League\CommonMark\Environment\EnvironmentBuilderInterface;
 
 use League\CommonMark\Event\DocumentParsedEvent;
 
-use Eightfold\CommonMarkAccessibleHeadingPermalink\HeadingPermalink;
-use Eightfold\CommonMarkAccessibleHeadingPermalink\HeadingPermalinkPocessor;
-use Eightfold\CommonMarkAccessibleHeadingPermalink\HeadingPermalinkRenderer;
+use Eightfold\CommonMarkAccessibleHeadingPermalink\HeadingPermalink\HeadingPermalink;
+use Eightfold\CommonMarkAccessibleHeadingPermalink\HeadingPermalink\HeadingPermalinkPocessor;
+use Eightfold\CommonMarkAccessibleHeadingPermalink\HeadingPermalink\HeadingPermalinkRenderer;
 
 final class HeadingPermalinkExtension implements ConfigurableExtensionInterface
 {

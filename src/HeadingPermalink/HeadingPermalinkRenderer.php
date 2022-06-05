@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Eightfold\CommonMarkAccessibleHeadingPermalink;
+namespace Eightfold\CommonMarkAccessibleHeadingPermalink\HeadingPermalink;
 
 use League\Config\ConfigurationAwareInterface;
 
@@ -19,7 +19,7 @@ use League\CommonMark\Xml\XmlNodeRendererInterface;
 use League\CommonMark\Renderer\NodeRendererInterface;
 use League\CommonMark\Renderer\ChildNodeRendererInterface;
 
-use Eightfold\CommonMarkAccessibleHeadingPermalink\HeadingPermalink;
+use Eightfold\CommonMarkAccessibleHeadingPermalink\HeadingPermalink\HeadingPermalink;
 
 final class HeadingPermalinkRenderer implements
     NodeRendererInterface,

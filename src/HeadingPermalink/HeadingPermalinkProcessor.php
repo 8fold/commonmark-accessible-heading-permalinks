@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Eightfold\CommonMarkAccessibleHeadingPermalink;
+namespace Eightfold\CommonMarkAccessibleHeadingPermalink\HeadingPermalink;
 
 use League\CommonMark\Environment\EnvironmentAwareInterface;
 
