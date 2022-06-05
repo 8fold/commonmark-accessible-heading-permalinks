@@ -15,6 +15,7 @@ use League\Config\ConfigurationInterface;
 /**
  * Don't use PHP ability to infer namespace.
  */
+use InvalidArgumentException;
 use Eightfold\CommonMarkAccessibleHeadingPermalink\HeadingPermalink;
 
 /**
@@ -43,7 +44,14 @@ final class HeadingPermalinkRenderer implements
         Node $node,
         ChildNodeRendererInterface $childRenderer
     ): HtmlElement {
-        HeadingPermalink::assertInstanceOf($node);
+        // PHPStan doesn't follow assertInstanceOf
+        if (is_a($node, HeadingPermalink::class) === false) {
+            $format    = 'Incompatible node type: expected %s, got %s';
+            $nodeClass = get_class($node);
+            $expected  = HeadingPermalink::class;
+            $exception = sprintf($format, $expected, $nodeClass);
+            throw new InvalidArgumentException($exception);
+        }
 
         $slug    = $node->getSlug();
 
@@ -115,7 +123,14 @@ final class HeadingPermalinkRenderer implements
 
     public function getXmlAttributes(Node $node): array
     {
-        HeadingPermalink::assertInstanceOf($node);
+        // PHPStan doesn't follow assertInstanceOf
+        if (is_a($node, HeadingPermalink::class) === false) {
+            $format    = 'Incompatible node type: expected %s, got %s';
+            $nodeClass = get_class($node);
+            $expected  = HeadingPermalink::class;
+            $exception = sprintf($format, $expected, $nodeClass);
+            throw new InvalidArgumentException($exception);
+        }
 
         return [
             'slug' => $node->getSlug(),
