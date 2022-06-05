@@ -6,7 +6,7 @@ namespace Eightfold\CommonMarkAccessibleHeadingPermalink\Tests;
 
 use PHPUnit\Framework\TestCase;
 
-use Eightfold\CommonMarkAccessibleHeadingPermalink\HeadingPermalink\HeadingPermalinkExtension;
+use Eightfold\CommonMarkAccessibleHeadingPermalink\HeadingPermalinkExtension;
 
 use League\CommonMark\Environment\Environment;
 use League\CommonMark\MarkdownConverter;

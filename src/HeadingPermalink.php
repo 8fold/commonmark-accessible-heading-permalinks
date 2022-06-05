@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Eightfold\CommonMarkAccessibleHeadingPermalink\HeadingPermalink;
+namespace Eightfold\CommonMarkAccessibleHeadingPermalink;
 
 use League\CommonMark\Node\Inline\AbstractInline;
 
