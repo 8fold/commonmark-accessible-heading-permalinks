@@ -2,6 +2,10 @@
 
 declare(strict_types=1);
 
+namespace Eightfold\CommonMarkAccessibleHeadingPermalink\Tests;
+
+use PHPUnit\Framework\TestCase;
+
 use Eightfold\CommonMarkAccessibleHeadingPermalink\HeadingPermalinkExtension;
 
 use League\CommonMark\Environment\Environment;
@@ -9,8 +13,14 @@ use League\CommonMark\MarkdownConverter;
 
 use League\CommonMark\Extension\CommonMark\CommonMarkCoreExtension;
 
-test('can change symbol used', function() {
-    $environment = new Environment([
+class AccessibleHeadingPermalinkTest extends TestCase
+{
+    /**
+     * @test
+     */
+    public function can_change_symbol_used(): void
+    {
+        $environment = new Environment([
             'accessible_heading_permalink' => [
                 'min_heading_level' => 2,
                 'symbol' => '#'
@@ -21,7 +31,11 @@ test('can change symbol used', function() {
 
         $converter = new MarkdownConverter($environment);
 
-        expect(
+        $this->assertEquals(<<<html
+            <h1>A word of caution</h1>
+            <p>Something</p><div is="heading-wrapper"><h2 id="another-word-of-caution">Another word of caution</h2><a href="#another-word-of-caution"><span aria-hidden="true">#</span><span>Section titled Another word of caution</span></a></div>
+
+            html,
             (string) $converter->convertToHtml(<<<md
                 # A word of caution
 
@@ -30,73 +44,76 @@ test('can change symbol used', function() {
                 ## Another word of caution
                 md
             )
-        )->toBe(<<<html
-            <h1>A word of caution</h1>
-            <p>Something</p><div is="heading-wrapper"><h2 id="another-word-of-caution">Another word of caution</h2><a href="#another-word-of-caution"><span aria-hidden="true">#</span><span>Section titled Another word of caution</span></a></div>
-
-            html
         );
-});
+    }
 
-it('respects ignoring levels', function() {
-    $environment = new Environment([
-        'accessible_heading_permalink' => [
-            'min_heading_level' => 2
-        ]
-    ]);
-    $environment->addExtension(new CommonMarkCoreExtension());
-    $environment->addExtension(new HeadingPermalinkExtension());
+    /**
+     * @test
+     */
+    public function respects_ignoring_levels(): void
+    {
+        $environment = new Environment([
+            'accessible_heading_permalink' => [
+                'min_heading_level' => 2
+            ]
+        ]);
+        $environment->addExtension(new CommonMarkCoreExtension());
+        $environment->addExtension(new HeadingPermalinkExtension());
 
-    $converter = new MarkdownConverter($environment);
+        $converter = new MarkdownConverter($environment);
 
-    expect(
-        (string) $converter->convertToHtml(<<<md
-            # A word of caution
 
-            Something
+        $this->assertEquals(<<<html
+            <h1>A word of caution</h1>
+            <p>Something</p><div is="heading-wrapper"><h2 id="another-word-of-caution">Another word of caution</h2><a href="#another-word-of-caution"><span aria-hidden="true">¶</span><span>Section titled Another word of caution</span></a></div>
 
-            ## Another word of caution
-            md
-        )
-    )->toBe(<<<html
-        <h1>A word of caution</h1>
-        <p>Something</p><div is="heading-wrapper"><h2 id="another-word-of-caution">Another word of caution</h2><a href="#another-word-of-caution"><span aria-hidden="true">¶</span><span>Section titled Another word of caution</span></a></div>
+            html,
+            (string) $converter->convertToHtml(<<<md
+                # A word of caution
 
-        html
-    );
-});
+                Something
 
-it('matches Amber Wilson implementation, not example iteration', function() {
-    $environment = new Environment();
-    $environment->addExtension(new CommonMarkCoreExtension());
-    $environment->addExtension(new HeadingPermalinkExtension());
+                ## Another word of caution
+                md
+            )
+        );
+    }
 
-    $converter = new MarkdownConverter($environment);
+    /**
+     * @test
+     */
+    public function matches_baseline(): void
+    {
+        // matches Amber Wilson implementation, not example iteration
+        $environment = new Environment();
+        $environment->addExtension(new CommonMarkCoreExtension());
+        $environment->addExtension(new HeadingPermalinkExtension());
 
-    expect(
-        (string) $converter->convertToHtml(<<<md
-            # A word of caution
-            md
-        )
-    )->toBe(<<<html
-        <div is="heading-wrapper"><h1 id="a-word-of-caution">A word of caution</h1><a href="#a-word-of-caution"><span aria-hidden="true">¶</span><span>Section titled A word of caution</span></a></div>
+        $converter = new MarkdownConverter($environment);
 
-        html
-    );
+        $this->assertEquals(<<<html
+            <div is="heading-wrapper"><h1 id="a-word-of-caution">A word of caution</h1><a href="#a-word-of-caution"><span aria-hidden="true">¶</span><span>Section titled A word of caution</span></a></div>
 
-    expect(
-        (string) $converter->convertToHtml(<<<md
-            # A word of caution
+            html,
+            (string) $converter->convertToHtml(<<<md
+                # A word of caution
+                md
+            )
+        );
 
-            Something
+        $this->assertEquals(<<<html
+            <div is="heading-wrapper"><h1 id="a-word-of-caution">A word of caution</h1><a href="#a-word-of-caution"><span aria-hidden="true">¶</span><span>Section titled A word of caution</span></a></div>
+            <p>Something</p><div is="heading-wrapper"><h2 id="another-word-of-caution">Another word of caution</h2><a href="#another-word-of-caution"><span aria-hidden="true">¶</span><span>Section titled Another word of caution</span></a></div>
 
-            ## Another word of caution
-            md
-        )
-    )->toBe(<<<html
-        <div is="heading-wrapper"><h1 id="a-word-of-caution">A word of caution</h1><a href="#a-word-of-caution"><span aria-hidden="true">¶</span><span>Section titled A word of caution</span></a></div>
-        <p>Something</p><div is="heading-wrapper"><h2 id="another-word-of-caution">Another word of caution</h2><a href="#another-word-of-caution"><span aria-hidden="true">¶</span><span>Section titled Another word of caution</span></a></div>
+            html,
+            (string) $converter->convertToHtml(<<<md
+                # A word of caution
 
-        html
-    );
-});
+                Something
+
+                ## Another word of caution
+                md
+            )
+        );
+    }
+}
