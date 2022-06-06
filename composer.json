@@ -10,14 +10,13 @@
     }
   ],
   "require": {
-    "php": "^7.4||^8.0",
-    "league/commonmark": "^2.0.2"
+    "php": "^7.4 || ^8.0",
+    "league/commonmark": "^2.3"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^3.6",
-    "phpstan/phpstan": "^1.1.0",
-    "pestphp/pest": "^1.20.0",
-    "psr/log": "^1.0.1"
+    "phpstan/phpstan": "^1.7",
+    "phpunit/phpunit": "^9.5"
   },
   "autoload": {
     "psr-4": {
@@ -32,7 +31,10 @@
   "config": {
     "optimize-autoloader": true,
     "preferred-install": "dist",
-    "sort-packages": true
+    "sort-packages": true,
+    "allow-plugins": {
+      "pestphp/pest-plugin": true
+    }
   },
   "prefer-stable": true,
   "scripts": {
@@ -40,6 +42,6 @@
     "production": ["@style", "@stan", "@test"],
     "style": "./vendor/bin/phpcs --standard=phpcs.xml -p ./src",
     "stan": "./vendor/bin/phpstan analyze",
-    "test": "./vendor/bin/pest"
+    "test": "./vendor/bin/phpunit"
   }
 }
