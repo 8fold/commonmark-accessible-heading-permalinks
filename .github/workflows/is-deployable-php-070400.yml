@@ -16,7 +16,8 @@ jobs:
         uses: actions/checkout@v7
 
       - name: Setup PHP Action
-        uses: shivammathur/setup-php@2.15.0
+        # Pin to 2.4.0
+        uses: shivammathur/setup-php@eb7c497e18156a6bbabfef1d3a82760b9eda3962
         with:
           php-version: '8.1'
 
