@@ -29,3 +29,5 @@ graphify-out/.graphify_labels.json
 graphify-out/.graphify_labels.json.sig
 # Graphify dated backup snapshots (local rollback copies)
 graphify-out/[0-9][0-9][0-9][0-9]-*/
+
+composer.lock
