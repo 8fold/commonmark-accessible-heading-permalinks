@@ -87,10 +87,17 @@ final class HeadingPermalinkRenderer implements
             false
         );
 
+        $attributes = [];
+        foreach ($attrs->export() as $key => $value) {
+            if (is_string($value)) {
+                $attributes[$key] = $value;
+            }
+        }
+
         // build the anchor itself
         $link = new HtmlElement(
             'a',
-            $attrs->export(),
+            $attributes,
             [$symbolSpan, $voiceoverSpan],
             false
         );

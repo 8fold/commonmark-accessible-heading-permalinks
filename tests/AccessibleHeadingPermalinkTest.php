@@ -31,7 +31,7 @@ class AccessibleHeadingPermalinkTest extends TestCase
 
         $converter = new MarkdownConverter($environment);
 
-        $this->assertEquals(<<<html
+        parent::assertEquals(<<<html
             <h1>A word of caution</h1>
             <p>Something</p><div is="heading-wrapper"><h2 id="another-word-of-caution">Another word of caution</h2><a href="#another-word-of-caution"><span aria-hidden="true">#</span><span>Section titled Another word of caution</span></a></div>
 
@@ -63,7 +63,7 @@ class AccessibleHeadingPermalinkTest extends TestCase
         $converter = new MarkdownConverter($environment);
 
 
-        $this->assertEquals(<<<html
+        parent::assertEquals(<<<html
             <h1>A word of caution</h1>
             <p>Something</p><div is="heading-wrapper"><h2 id="another-word-of-caution">Another word of caution</h2><a href="#another-word-of-caution"><span aria-hidden="true">¶</span><span>Section titled Another word of caution</span></a></div>
 
@@ -91,7 +91,7 @@ class AccessibleHeadingPermalinkTest extends TestCase
 
         $converter = new MarkdownConverter($environment);
 
-        $this->assertEquals(<<<html
+        parent::assertEquals(<<<html
             <div is="heading-wrapper"><h1 id="a-word-of-caution">A word of caution</h1><a href="#a-word-of-caution"><span aria-hidden="true">¶</span><span>Section titled A word of caution</span></a></div>
 
             html,
@@ -101,7 +101,7 @@ class AccessibleHeadingPermalinkTest extends TestCase
             )
         );
 
-        $this->assertEquals(<<<html
+        parent::assertEquals(<<<html
             <div is="heading-wrapper"><h1 id="a-word-of-caution">A word of caution</h1><a href="#a-word-of-caution"><span aria-hidden="true">¶</span><span>Section titled A word of caution</span></a></div>
             <p>Something</p><div is="heading-wrapper"><h2 id="another-word-of-caution">Another word of caution</h2><a href="#another-word-of-caution"><span aria-hidden="true">¶</span><span>Section titled Another word of caution</span></a></div>
 

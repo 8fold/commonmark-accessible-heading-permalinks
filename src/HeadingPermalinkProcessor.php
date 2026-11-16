@@ -37,12 +37,20 @@ final class HeadingPermalinkProcessor implements EnvironmentAwareInterface
     public function __invoke(DocumentParsedEvent $e): void
     {
         // Primary key from configuration is different than base
-        $min = (int) $this->config
-            ->get('accessible_heading_permalink/min_heading_level');
-        $max = (int) $this->config
-            ->get('accessible_heading_permalink/max_heading_level');
+        $min = $this->config->get('accessible_heading_permalink/min_heading_level');
+        if (is_int($min) === false) {
+            $min = 1;
+        }
 
-        $slugLength = (int) $this->config->get('slug_normalizer/max_length');
+        $max = $this->config->get('accessible_heading_permalink/max_heading_level');
+        if (is_int($max) === false) {
+            $max = 6;
+        }
+
+        $slugLength = $this->config->get('slug_normalizer/max_length');
+        if (is_int($slugLength) === false) {
+            $slugLength = 255;
+        }
 
         foreach ($e->getDocument()->iterator(NodeIterator::FLAG_BLOCKS_ONLY) as $node) {
             if (
