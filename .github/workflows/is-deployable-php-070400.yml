@@ -1,4 +1,4 @@
-name: Is deployabel on PHP 8.1
+name: Is deployabel on PHP 7.4
 permissions:
   contents: read
 
