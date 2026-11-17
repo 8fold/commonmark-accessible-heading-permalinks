@@ -1,5 +1,14 @@
 parameters:
-	level: 8
-	paths:
-		- src
-		- tests
+    level: 10
+    paths:
+        - bin
+        - src
+        - tests
+    excludePaths:
+        - */vendor/*
+    checkClassCaseSensitivity: true
+    checkInternalClassCaseSensitivity: true
+    checkMissingOverridePropertyAttribute: true
+    reportNonIntStringArrayKey: true
+    strictRules:
+        allRules: true
