@@ -15,10 +15,8 @@ use League\CommonMark\Extension\CommonMark\CommonMarkCoreExtension;
 
 class AccessibleHeadingPermalinkTest extends TestCase
 {
-    /**
-     * @test
-     */
-    public function can_change_symbol_used(): void
+
+    public function test_can_change_symbol_used(): void
     {
         $environment = new Environment([
             'accessible_heading_permalink' => [
@@ -47,10 +45,7 @@ class AccessibleHeadingPermalinkTest extends TestCase
         );
     }
 
-    /**
-     * @test
-     */
-    public function respects_ignoring_levels(): void
+    public function test_respects_ignoring_levels(): void
     {
         $environment = new Environment([
             'accessible_heading_permalink' => [
@@ -79,10 +74,7 @@ class AccessibleHeadingPermalinkTest extends TestCase
         );
     }
 
-    /**
-     * @test
-     */
-    public function matches_baseline(): void
+    public function test_matches_baseline(): void
     {
         // matches Amber Wilson implementation, not example iteration
         $environment = new Environment();
