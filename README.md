@@ -69,10 +69,9 @@ This example uses the solution provided by the [United States Web Design System]
 
 ## Other
 
-- [Code of Conduct](https://github.com/8fold/commonmark-fluent-markdown/blob/main/.github/CODE_OF_CONDUCT.md)
-- [Contributing](https://github.com/8fold/commonmark-accessible-heading-permalinks/blob/main/.github/CONTRIBUTING.md)
-- [Governance](https://github.com/8fold/commonmark-accessible-heading-permalinks/blob/main/.github/GOVERNANCE.md)
-- [Versioning](https://github.com/8fold/commonmark-accessible-heading-permalinks/blob/main/.github/VERSIONING.md)
-- [Security](https://github.com/8fold/commonmark-accessible-heading-permalinks/blob/main/.github/SECURITY.md)
-- [Coding Standards and Style](https://github.com/8fold/commonmark-accessible-heading-permalinks/blob/main/.github/coding-standards-and-styles.md)
+- [Code of Conduct](https://github.com/8fold/.github/blob/main/CODE_OF_CONDUCT.md)
+- [Contributing](https://github.com/8fold/.github/blob/main/CONTRIBUTING.md)
+- [Governance](https://github.com/8fold/.github/blob/main/GOVERNANCE.md)
+- [Versioning](https://github.com/8fold/.github/blob/main/docs/versioning-base.md)
+- [Security](https://github.com/8fold/.github/blob/main/SECURITY.md)
 
