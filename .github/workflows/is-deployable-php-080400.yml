@@ -38,4 +38,4 @@ jobs:
         run: composer run check:analysis
 
       - name: Run tests
-        run: composer run check:test
+        run: composer run check:test:ci
