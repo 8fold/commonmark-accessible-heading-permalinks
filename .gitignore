@@ -34,6 +34,5 @@ graphify-out/[0-9][0-9][0-9][0-9]-*/
 composer.lock
 
 # Use default PHPUnit config
-phpunit.xml
 /.phpunit.result.cache
 /.phpunit.cache
