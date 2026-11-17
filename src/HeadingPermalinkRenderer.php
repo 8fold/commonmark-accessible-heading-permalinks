@@ -11,6 +11,7 @@ use League\CommonMark\Util\HtmlElement;
 use League\CommonMark\Xml\XmlNodeRendererInterface;
 use League\Config\ConfigurationAwareInterface;
 use League\Config\ConfigurationInterface;
+use League\CommonMark\Util\Xml;
 
 /**
  * Don't use PHP ability to infer namespace.
@@ -75,7 +76,7 @@ final class HeadingPermalinkRenderer implements
             [
                 'aria-hidden' => "true"
             ],
-            htmlspecialchars($symbol),
+            $symbol,
             false
         );
 
@@ -83,7 +84,7 @@ final class HeadingPermalinkRenderer implements
         $voiceoverSpan = new HtmlElement(
             'span',
             [],
-            'Section titled ' . htmlspecialchars($content),
+            'Section titled ' . Xml::escape($content),
             false
         );
 
@@ -106,7 +107,7 @@ final class HeadingPermalinkRenderer implements
         $header = new HtmlElement(
             'h' . $level,
             ['id' => $slug],
-            $content,
+            Xml::escape($content),
             false
         );
 
